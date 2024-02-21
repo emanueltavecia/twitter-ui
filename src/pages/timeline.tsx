@@ -1,23 +1,51 @@
+import { FormEvent, KeyboardEvent, useState } from 'react'
 import { Header } from '../components/header'
 import { Separator } from '../components/separator'
 import { Tweet } from '../components/tweet'
 
 import './timeline.css'
 
-const tweets = ['Meu primeiro tweet', 'Teste', 'Deu certo tweetar']
-
 export function Timeline() {
+  const [newTweet, setNewTweet] = useState('')
+  const [tweets, setTweets] = useState([
+    'Meu primeiro tweet',
+    'Teste',
+    'Deu certo tweetar',
+  ])
+
+  function createNewTweet(event: FormEvent) {
+    event.preventDefault()
+    
+    setTweets([newTweet, ...tweets])
+    setNewTweet('')
+  }
+
+  function handleHotketSubmit(event: KeyboardEvent) {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      setTweets([newTweet, ...tweets])
+      setNewTweet('')
+    }
+  }
+
   return (
     <main className="timeline">
       <Header title="Home" />
 
-      <form className="new-tweet-form">
+      <form onSubmit={createNewTweet} className="new-tweet-form">
         <label htmlFor="tweet">
           <img
             src="https://github.com/emanueltavecia.png"
             alt="Emanuel Tavecia"
           />
-          <textarea name="" id="tweet" placeholder="What's happening?" />
+          <textarea
+            onChange={(event) => {
+              setNewTweet(event.target.value)
+            }}
+            id="tweet"
+            value={newTweet}
+            onKeyDown={handleHotketSubmit}
+            placeholder="What's happening?"
+          />
         </label>
 
         <button type="submit">Post</button>
