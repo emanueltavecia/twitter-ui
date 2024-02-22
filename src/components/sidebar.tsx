@@ -4,15 +4,16 @@ import {
   DotsThreeCircle,
   Envelope,
   FileText,
-  Hash,
   House,
+  MagnifyingGlass,
   Pencil,
   User,
+  Users
 } from 'phosphor-react'
 import twitterLogo from '../assets/logo-twitter.svg'
 
-import './sidebar.css'
 import { NavLink } from 'react-router-dom'
+import './sidebar.css'
 
 export function Sidebar() {
   return (
@@ -25,7 +26,7 @@ export function Sidebar() {
           <span>Home</span>
         </NavLink>
         <a href="#">
-          <Hash />
+          <MagnifyingGlass />
           <span>Explore</span>
         </a>
         <a href="#">
@@ -37,12 +38,16 @@ export function Sidebar() {
           <span>Messages</span>
         </a>
         <a href="#">
+          <FileText />
+          <span>Lists</span>
+        </a>
+        <a href="#">
           <BookmarkSimple />
           <span>Bookmarks</span>
         </a>
         <a href="#">
-          <FileText />
-          <span>Lists</span>
+          <Users />
+          <span>Communities</span>
         </a>
         <a href="#">
           <User />
