@@ -8,9 +8,9 @@ import './timeline.css'
 export function Timeline() {
   const [newTweet, setNewTweet] = useState('')
   const [tweets, setTweets] = useState([
-    'Meu primeiro tweet',
-    'Teste',
-    'Deu certo tweetar',
+    'Estou impressionado com o poder do React para criar interfaces de usuário dinâmicas e interativas. #reactjs #webdev',
+    'Dentro do universo da programação, cada linha de código é como uma peça em um quebra-cabeça infinito, onde a criatividade e a lógica se entrelaçam para criar soluções inovadoras e funcionais. 💻✨ #Programação #Criatividade #Inovação #Desenvolvimento',
+    'Meu primeiro Tweet',
   ])
 
   function createNewTweet(event: FormEvent) {
